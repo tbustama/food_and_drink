@@ -1,6 +1,6 @@
 <h2><%= @food.name %> </h2>
 Created by: <%= @food.user.name%> <br>
-Time: <%= @food.time + " minutes" %> <br>
+Time: <%= @food.time.to_s + " minutes" %> <br>
 Ingredients: <%= @food.ingredients %> <br>
 Directions: <%= @food.directions %> <br><br>
 <%= image_tag @food.image_url, size:"500x600"%> <br><br>

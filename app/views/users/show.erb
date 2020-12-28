@@ -1,9 +1,18 @@
-<h1><%= @user.name %></h1><br>
-City: <%= @user.city %></h1><br>
-Username: <%= @user.username %></h1><br>
+<h2><%= @user.name %></h2><br>
+City: <%= @user.city %><br><br>
+Username: <%= @user.username %><br><br>
 
-<% @user.foods.each do |f| %>
-All Food Recipes: <%= @user.foods.name %> 
+All Food Recipes:
+<ul>
+<% @user.foods.each do |f| %> 
+<li><%= link_to f.name, food_path(f) %></li><br>
 <% end %> 
+</ul>
 
+All Drink Recipes:
+<ul>
+<% @user.drinks.each do |d| %>
+<li><%= link_to d.name, drink_path(d) %></li><br>
+<% end %> 
+</ul>
 
