@@ -20,8 +20,8 @@ class CommentsController < ApplicationController
         if @comment.valid? 
 		    redirect_to @comment.recipe
 	    else 
-		    flash[:errors] = @comment.errors.full_messages
-		    redirect_to drinks_path
+            flash[:errors] = @comment.errors.full_messages
+            redirect_to comment_params["recipe_type"] == "Drink" ? Drink.find(comment_params["recipe_id"]) : Food.find(comment_params["recipe_id"])
 	    end
     end
 
