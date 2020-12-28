@@ -1,0 +1,19 @@
+<h2><%= @drink.name %> </h2>
+Created by: <%= @drink.user.name%> <br>
+Ingredients: <%= @drink.ingredients %> <br>
+Directions: <%= @drink.directions %> <br><br>
+<%= image_tag @drink.image_url, size:"500x600"%> <br><br>
+<%= button_to "Edit", edit_drink_path, method: :get %> <br><br>
+<h3>Comment Section</h3>
+<% @comments.each do |comment|%>
+    <%= comment.content %> <br> <br>
+<% end %>
+
+<%= form_with model:@comment do |f|%>
+    <%= f.label "Add Comment" %>: <br>
+    <%= f.text_area :content %> <br>
+    <%= f.hidden_field :recipe_id, value: @drink.id %>
+    <%= f.hidden_field :recipe_type, value: @drink.class %>
+    <%= f.hidden_field :user_id, value: 1%>
+    <%= f.submit %>
+<% end %>
