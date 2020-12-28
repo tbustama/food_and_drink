@@ -23,9 +23,19 @@ class UsersController < ApplicationController
     end 
 
     def update 
+        @user = User.find(params[:id])
+        @user.update(user_params)
+        if @user.valid?
+            redirect_to @user
+        else 
+            flash[:errors] = @user.errors.full_messages
+            redirect_to new_user_path
+        end
     end 
 
     def destroy 
+        @user = User.find(params[:id])
+        @user.destroy
     end 
 
     private 
