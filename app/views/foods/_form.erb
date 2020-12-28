@@ -1,0 +1,29 @@
+<% if flash[:errors] %> 
+    <% flash[:errors].each do |error| %> 
+    <%= error %> 
+    <% end %> 
+<% end %>
+
+<%= form_with model:@food do |f| %> 
+    
+
+    <%= f.label :category %> 
+    <%= f.text_field :category %><br>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :ingredients %>
+    <%= f.text_area :ingredients %><br>
+
+    <%= f.label :directions %>
+    <%= f.text_area :directions %><br>
+
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url %><br>
+
+    <%= f.label :time %>
+    <%= f.number_field :time %><br>
+
+    <%= f.submit %>
+    <% end %> 
