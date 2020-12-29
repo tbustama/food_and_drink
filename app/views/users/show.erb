@@ -3,14 +3,14 @@ City: <%= @user.city %><br><br>
 Username: <%= @user.username %><br><br>
 
 All Food Recipes:
-<ul>
+<ul style="display:table;margin: 0 auto">
 <% @user.foods.each do |f| %> 
 <li><%= link_to f.name, food_path(f) %></li><br>
-<% end %> 
+<% end %>
 </ul>
 
 All Drink Recipes:
-<ul>
+<ul style="display:table;margin: 0 auto">
 <% @user.drinks.each do |d| %>
 <li><%= link_to d.name, drink_path(d) %></li><br>
 <% end %> 
