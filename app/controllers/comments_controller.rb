@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
     end
 
     def create
-        #byebug
         @comment = Comment.create(comment_params)
         if @comment.valid? 
 		    redirect_to @comment.recipe
