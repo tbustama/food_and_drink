@@ -4,18 +4,24 @@ Time: <%= @food.time.to_s + " minutes" %> <br>
 Ingredients: <%= @food.ingredients %> <br>
 Directions: <%= @food.directions %> <br><br>
 <%= image_tag @food.image_url, size:"500x600"%> <br><br>
-<%= button_to "Edit", edit_food_path, method: :get %> <br><br>
+
+<% if current_user %>
+    <%= button_to "Edit", edit_food_path, method: :get %> <br><br>
+<% end %>
+
 <h3>Comment Section</h3>
 <% @comments.each do |comment|%>
     <%= comment.content %> <br> <br>
 <% end %>
 
+<% if current_user %>
 <%= form_with model:@comment do |f|%>
     <%= f.label "Add Comment" %>: <br>
     <%= f.text_area :content %> <br>
     <%= f.hidden_field :recipe_id, value: @food.id %>
     <%= f.hidden_field :recipe_type, value: @food.class %>
-    <%= f.hidden_field :user_id, value: 1%>
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
     <%= f.submit %>
+<% end %>
 <% end %>
 

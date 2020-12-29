@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: 'users#home'
+  get 'login', to: 'sessions#new', as: 'login'
+  delete 'logout', to: 'sessions#destroy', as: 'logout'
+  resources :sessions, only: [:create]
   resources :comments
   resources :likes
   resources :foods

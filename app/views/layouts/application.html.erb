@@ -12,7 +12,7 @@
 
   <body style="margin: 0px;">
     
-    <nav class="navbar navbar-inverse navbar-expand" style="background-color: #000; min-height: 54px">
+    <nav class="navbar navbar-inverse navbar-expand" style="background-color: #000; min-height: 54px;">
       <div class="container" style="width: 1300px">
         <div class="navbar-brand">
         <ul><%= link_to "Home", root_path %></ul>
@@ -24,9 +24,15 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Food Recipes", foods_path %></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "Log In", new_user_path %></li>
-          </ul>
+          <% if current_user %>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Sign Out", logout_path %></li>
+            </ul>
+          <% else %>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Log In", login_path %></li>
+            </ul>
+          <% end %>
         </div>
       </div>
     </nav>
