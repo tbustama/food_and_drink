@@ -5,11 +5,7 @@ Ingredients: <%= @food.ingredients %> <br>
 Directions: <%= @food.directions %> <br><br>
 <%= image_tag @food.image_url, size:"500x600"%> <br><br>
 
-<% if current_user %>
-    <%= button_to "like", new_like_path, method: :get %> <br><br>
-<% end %>
-
-<% if current_user %>
+<% if current_user == @food.user %>
     <%= button_to "Edit", edit_food_path, method: :get %> <br><br>
 <% end %>
 

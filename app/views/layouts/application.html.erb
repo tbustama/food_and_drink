@@ -14,8 +14,8 @@
     
     <nav class="navbar navbar-inverse navbar-expand" style="background-color: #000; min-height: 54px;">
       <div class="container" style="width: 1300px">
-        <div class="navbar-brand">
-        <ul><%= link_to "Home", root_path %></ul>
+        <div class="navbar-header">
+        <ul><%= link_to "Home", root_path, class: "navbar-brand" %></ul>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -26,7 +26,7 @@
           </ul>
           <% if current_user %>
             <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "Sign Out", logout_path %></li>
+              <li><%= link_to "Profile", current_user %></li>
             </ul>
           <% else %>
             <ul class="nav navbar-nav navbar-right">

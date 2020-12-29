@@ -2,14 +2,18 @@
 City: <%= @user.city %><br><br>
 Username: <%= @user.username %><br><br>
 
-All Food Recipes:
+<%= button_to "Sign Out", logout_path, method: :get %> <br> <br>
+
+<h4>All Food Recipes:</h4>
+<%= button_to "Create New Recipe", new_food_path, method: :get %> <br>
 <ul style="display:table;margin: 0 auto">
 <% @user.foods.each do |f| %> 
 <li><%= link_to f.name, food_path(f) %></li><br>
 <% end %>
 </ul>
 
-All Drink Recipes:
+<h4>All Drink Recipes:</h4>
+<%= button_to "Create New Recipe", new_drink_path, method: :get %> <br>
 <ul style="display:table;margin: 0 auto">
 <% @user.drinks.each do |d| %>
 <li><%= link_to d.name, drink_path(d) %></li><br>
