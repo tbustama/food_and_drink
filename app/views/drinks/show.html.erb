@@ -3,7 +3,11 @@ Created by: <%=link_to @drink.user.name, @drink.user%> <br>
 Ingredients: <%= @drink.ingredients %> <br>
 Directions: <%= @drink.directions %> <br><br>
 <%= image_tag @drink.image_url, size:"500x600"%> <br><br>
-<%= button_to "Edit", edit_drink_path, method: :get %> <br><br>
+
+<% if current_user %>
+    <%= button_to "Edit", edit_drink_path, method: :get %> <br><br>
+<% end %>
+
 <h3>Comment Section</h3>
 <% @comments.each do |comment|%>
     <%= link_to comment.user.name, comment.user %> : <br>
