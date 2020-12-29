@@ -10,11 +10,13 @@ Directions: <%= @drink.directions %> <br><br>
     <%= comment.content %> <br> <br>
 <% end %>
 
+<% if current_user %>
 <%= form_with model:@comment do |f|%>
     <%= f.label "Add Comment" %>: <br>
     <%= f.text_area :content %> <br>
     <%= f.hidden_field :recipe_id, value: @drink.id %>
     <%= f.hidden_field :recipe_type, value: @drink.class %>
-    <%= f.hidden_field :user_id, value: 2%>
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
     <%= f.submit %>
+<% end %>
 <% end %>
