@@ -48,6 +48,3 @@ class UsersController < ApplicationController
     end 
 
 end
-
-
-# All Drink Recipes: link _to <%= f.drinks.name %>, drink_path(f)

@@ -4,10 +4,14 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   resources :sessions, only: [:create]
   resources :comments
-  resources :likes
-  # put 'foods/:id/like' to: 'foods#like', as: 'like'
-  # put 'drinks/:id/like' to: 'drinks#like', as: 'like'
-  resources :foods
-  resources :drinks
+  # haven't needed this yet ==> resources :likes
+  post 'foods/:id/likes/:id', to: 'likes#create_food_like', as: 'like_food'
+  post 'drinks/:id/likes/:id', to: 'likes#create_drink_like', as: 'like_drink'
+  resources :foods do 
+    resources :likes 
+  end 
+  resources :drinks do 
+    resources :likes 
+  end 
   resources :users
 end

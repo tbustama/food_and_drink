@@ -2,5 +2,7 @@
 <% @foods.each do |food|%>
     <%= link_to food.name, food %> <br>
     Created by: <%= link_to food.user.name, food.user %> <br><br>
+    <%= food.likes.count %> <%= (food.likes.count) == 1 ? 'Like' : 'Likes'%><br>
     <%= image_tag food.image_url, size: "200x225"%> <br>
 <% end %>
+

@@ -4,6 +4,14 @@ Ingredients: <%= @drink.ingredients %> <br>
 Directions: <%= @drink.directions %> <br><br>
 <%= image_tag @drink.image_url, size:"500x600"%> <br><br>
 
+<p><%= @drink.likes.count %> <%= (@drink.likes.count) == 1 ? 'Like' : 'Likes'%></p><br>
+
+<% if flash[:notice] %> 
+    <%= flash[:notice] %><br>
+<% end %>
+
+<%= button_to 'Like', drink_like_path(@drink), method: :post %>
+
 <% if current_user == @drink.user %>
     <%= button_to "Edit", edit_drink_path, method: :get %> <br><br>
 <% end %>
