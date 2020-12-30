@@ -2,21 +2,27 @@
 City: <%= @user.city %><br><br>
 Username: <%= @user.username %><br><br>
 
+<% if current_user == @user %>
 <%= button_to "Sign Out", logout_path, method: :get %> <br> <br>
+<% end %>
 
 <h4>All Food Recipes:</h4>
+<% if current_user == @user %>
 <%= button_to "Create New Recipe", new_food_path, method: :get %> <br>
-<ul style="display:table;margin: 0 auto">
-<% @user.foods.each do |f| %> 
-<li><%= link_to f.name, food_path(f) %></li><br>
 <% end %>
-</ul>
+
+<% @user.foods.each do |f| %> 
+    <b>- </b> <%= link_to f.name, food_path(f) %><br>
+<% end %>
+
 
 <h4>All Drink Recipes:</h4>
+<% if current_user == @user %>
 <%= button_to "Create New Recipe", new_drink_path, method: :get %> <br>
-<ul style="display:table;margin: 0 auto">
+<% end %>
+
 <% @user.drinks.each do |d| %>
-<li><%= link_to d.name, drink_path(d) %></li><br>
+<b>- </b> <%= link_to d.name, drink_path(d) %><br>
 <% end %> 
-</ul>
+
 
