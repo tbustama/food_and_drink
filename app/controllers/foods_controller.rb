@@ -17,8 +17,6 @@ class FoodsController < ApplicationController
     def create 
         
         @food = Food.create(food_params)
-
-        #@food.user_id = session[:user_id]
         if @food.valid?
             redirect_to @food 
         else 
