@@ -7,7 +7,7 @@ class FoodsController < ApplicationController
     def show 
         @food = Food.find(params[:id])
         @comment = Comment.new 
-        @comments = Comment.all 
+        @comments = Comment.where(recipe_id: @food.id, recipe_type: @food.class.to_s)
     end 
 
     def new 

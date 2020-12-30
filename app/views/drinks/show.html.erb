@@ -9,9 +9,14 @@ Directions: <%= @drink.directions %> <br><br>
 <% end %>
 
 <h3>Comment Section</h3>
+
 <% @comments.each do |comment|%>
     <%= link_to comment.user.name, comment.user %> : <br>
-    <%= comment.content %> <br> <br>
+    <%= comment.content %> 
+    <% if current_user == comment.user %>
+        <%= button_to "delete comment", comment_path(comment), method: :delete %>
+    <% end %>
+    <br> <br>
 <% end %>
 
 <% if current_user %>

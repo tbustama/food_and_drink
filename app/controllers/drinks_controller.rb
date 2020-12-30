@@ -31,7 +31,7 @@ class DrinksController < ApplicationController
     def show
         @drink = Drink.find(params[:id])
         @comment = Comment.new
-        @comments = Comment.all
+        @comments = Comment.where(recipe_id: @drink.id, recipe_type: @drink.class.to_s)
     end
 	
     def index

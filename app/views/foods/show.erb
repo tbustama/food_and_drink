@@ -10,8 +10,14 @@ Directions: <%= @food.directions %> <br><br>
 <% end %>
 
 <h3>Comment Section</h3>
+
 <% @comments.each do |comment|%>
-    <%= comment.content %> <br> <br>
+    <%= link_to comment.user.name, comment.user %> : <br>
+    <%= comment.content %> 
+    <% if current_user == comment.user %>
+        <%= button_to "delete comment", comment_path(comment), method: :delete %>
+    <% end %>
+    <br> <br>
 <% end %>
 
 <% if current_user %>
