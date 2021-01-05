@@ -1,14 +1,13 @@
 <h2>All Chefs</h2>
 
-<ul> 
+
 <% User.like_sort.each do |user| %> 
    <%= link_to user.name + ", " + user.all_likes.to_s, user %><br>
     <% end %> 
-</ul> 
+
 
 <h3>Top 3 Active Chefs</h3>
-<ul> 
+
 <% User.top_three_active.each do |user| %> 
    <%= link_to user.name, user %><br>
     <% end %> 
-</ul> 
