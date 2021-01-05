@@ -17,10 +17,6 @@ class Drink < ApplicationRecord
     Drink.all.max_by{|drink| drink.comments}
   end
 
-  def self.most_ingredients
-    Drink.all.max_by{|drink| drink.ingredients.split(",")}
-  end
-
   def city
     self.user.city
   end

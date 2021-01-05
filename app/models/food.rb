@@ -18,15 +18,19 @@ class Food < ApplicationRecord
   end
 
   def self.longest_time
-    Food.maximum(:time)
+    Food.find_by(time: Food.maximum(:time))
   end
 
   def self.shortest_time
-    Food.minimum(:time)
+    Food.group(:time).having("time < 30")
   end
 
   def self.top_five_foods
     Food.all.sort{|food| food.likes.count}.last(5).reverse
+  end
+
+  def self.least_ingredients
+    Food.all.min_by{|food| food.ingredients.split(",")}
   end
 
 end

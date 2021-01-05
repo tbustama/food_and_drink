@@ -44,6 +44,10 @@ class DrinksController < ApplicationController
 	    redirect_to drinks_path
     end 
 
+    def random 
+        redirect_to Drink.random
+    end 
+
     private
     def drink_params
         params.require(:drink).permit(:name, :category, :ingredients, :directions, :image_url, :user_id)
