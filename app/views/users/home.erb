@@ -1,1 +1,12 @@
 <h1>Welcome to Food & Drinks</h1> 
+
+<h4>Most Popular City</h4> 
+<%= User.most_pop_city.city %><br>
+
+<h4>User With The Most Food Post</h4> 
+<%= link_to User.most_food_posts.name, User.most_food_posts %><br>
+
+<h4>User With The Most Drink Post</h4> 
+<%= link_to User.most_drink_posts.name, User.most_drink_posts %><br>
+
+

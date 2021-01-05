@@ -11,7 +11,9 @@ Directions: <%= @food.directions %> <br><br>
     <%= flash[:notice] %><br>
 <% end %>
 
+<% if current_user %>
 <%= button_to 'Like', food_like_path(@food), method: :post %>
+<% end %>
 
 <% if current_user == @food.user %>
     <%= button_to "Edit", edit_food_path, method: :get %> <br><br>
