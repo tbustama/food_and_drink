@@ -9,4 +9,31 @@
 <h4>User With The Most Drink Post</h4> 
 <%= link_to User.most_drink_posts.name, User.most_drink_posts %><br>
 
+<h4>Top 5 Drink Posts</h4> 
+<% Drink.top_five_likes.each do |drink| %> 
+    <%= link_to drink.name, drink %><br>
+    <% end %> 
 
+<h4>Top 5 Food Posts</h4> 
+<% Food.top_five_foods.each do |food| %> 
+    <%= link_to food.name, food %><br>
+    <% end %> 
+
+<h4>Meals Under 30 Minutes</h4> 
+<% Food.shortest_time.each do |time| %> 
+<%= link_to time.name, time %><br> 
+<% end %> 
+
+<h4>Low and Slow</h4> 
+<%= link_to Food.longest_time.name, Food.longest_time %><br> 
+
+<h4>Least Ingredients and Prep Meal</h4> 
+<%= link_to Food.least_ingredients.name, Food.least_ingredients %><br> 
+
+<h4>Most Talked About Food and Drink Recipe</h4> 
+Food: <%= link_to Food.most_comments.name, Food.most_comments %><br> 
+Drink: <%= link_to Drink.most_comments.name, Drink.most_comments %><br><br>
+
+Food: <%= button_to "I'm Feeling Lucky", random_food_path, method: :get %><br> 
+
+Drink: <%= button_to "I'm Feeling Lucky", random_drink_path, method: :get %> 

@@ -47,6 +47,10 @@ class FoodsController < ApplicationController
         redirect_to foods_path
     end 
 
+    def random 
+        redirect_to Food.random
+    end 
+
     private 
 
     def food_params 
