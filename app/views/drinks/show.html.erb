@@ -10,7 +10,9 @@ Directions: <%= @drink.directions %> <br><br>
     <%= flash[:notice] %><br>
 <% end %>
 
-<%= button_to 'Like', drink_like_path(@drink), method: :post %> <br>
+<% if current_user %>
+<%= button_to 'Like', drink_like_path(@drink), method: :post %>
+<% end %>
 
 <% if current_user == @drink.user %>
     <%= button_to "Edit", edit_drink_path, method: :get %> <br><br>
