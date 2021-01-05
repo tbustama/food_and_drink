@@ -11,7 +11,7 @@ Directions: <%= @drink.directions %> <br><br>
 <% end %>
 
 <% if current_user %>
-<%= button_to 'Like', drink_like_path(@drink), method: :post %>
+<%= button_to 'Like', drink_like_path(@drink), method: :post %> <br>
 <% end %>
 
 <% if current_user == @drink.user %>
