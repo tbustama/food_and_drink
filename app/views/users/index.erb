@@ -1,0 +1,7 @@
+<h2>All Chefs</h2>
+
+<ul> 
+<% User.like_sort.each do |user| %> 
+   <%= link_to user.name + ", " + user.all_likes.to_s, user %><br>
+    <% end %> 
+</ul> 

@@ -24,6 +24,9 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Food Recipes", foods_path %></li>
           </ul>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "All Chefs", users_path %></li>
+          </ul>
           <% if current_user %>
             <ul class="nav navbar-nav navbar-right">
               <li><%= link_to "Profile", current_user %></li>
