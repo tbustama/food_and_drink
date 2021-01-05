@@ -36,6 +36,11 @@ class User < ApplicationRecord
 
     def self.like_sort 
         User.all.sort_by{|user| user.all_likes}.reverse
+    end
+
+    def self.top_three_active 
+        User.all.sort_by{|user| user.comments.count}.last(3).reverse
     end 
+    
 
 end
