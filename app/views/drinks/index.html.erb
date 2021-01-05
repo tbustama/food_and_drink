@@ -1,7 +1,7 @@
 <h2>Drink Recipes</h2>
 <% @drinks.each do |drink|%>
     <%= link_to drink.name, drink %> <br>
-    Created by: <%= link_to drink.user.name, drink.user %> <br><br>
+    Created by: <%= link_to drink.user.name, drink.user %> <br>
     <%= drink.likes.count %> <%= (drink.likes.count) == 1 ? 'Like' : 'Likes'%><br>
-    <%= image_tag drink.image_url, size: "200x225"%> <br>
+    <p><%= image_tag drink.image_url, size: "200x225"%> </p>
 <% end %>

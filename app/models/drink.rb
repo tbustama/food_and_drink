@@ -24,5 +24,9 @@ class Drink < ApplicationRecord
   def city
     self.user.city
   end
+
+  def self.top_five_likes
+    Drink.all.sort{|drink| drink.likes.count}.last(5).reverse
+  end
   
 end

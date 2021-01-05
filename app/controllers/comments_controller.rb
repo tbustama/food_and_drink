@@ -37,9 +37,16 @@ class CommentsController < ApplicationController
     end
 
     def destroy 
-	    @comment = Comment.find(params[:id])
-	    @comment.destroy
-	    redirect_to root_path
+        @comment = Comment.find(params[:id])
+        if @comment.recipe_type == "Food"
+            food = Food.find(@comment.recipe_id)
+            @comment.destroy
+            redirect_to food
+        else
+            drink = Drink.find(@comment.recipe_id)
+            @comment.destroy
+            redirect_to drink
+        end
     end 
 
     private

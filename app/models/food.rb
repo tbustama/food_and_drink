@@ -25,5 +25,8 @@ class Food < ApplicationRecord
     Food.minimum(:time)
   end
 
-  
+  def self.top_five_foods
+    Food.all.sort{|food| food.likes.count}.last(5).reverse
+  end
+
 end

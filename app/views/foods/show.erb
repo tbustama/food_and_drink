@@ -1,5 +1,5 @@
 <h2><%= @food.name %> </h2>
-Created by: <%= @food.user.name%> <br>
+Created by: <%= link_to @food.user.name, @food.user %> <br>
 Time: <%= @food.time.to_s + " minutes" %> <br>
 Ingredients: <%= @food.ingredients %> <br>
 Directions: <%= @food.directions %> <br><br>
@@ -11,7 +11,7 @@ Directions: <%= @food.directions %> <br><br>
     <%= flash[:notice] %><br>
 <% end %>
 
-<%= button_to 'Like', food_like_path(@food), method: :post %>
+<%= button_to 'Like', food_like_path(@food), method: :post %> <br>
 
 <% if current_user == @food.user %>
     <%= button_to "Edit", edit_food_path, method: :get %> <br><br>
