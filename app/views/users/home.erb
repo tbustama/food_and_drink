@@ -109,18 +109,22 @@
         <div class="p-4">
             <h3 class="font-italic">Most Active Chefs</h3>
             <ol class="list-unstyled">
-                <li><%= link_to User.most_food_posts.name, User.most_food_posts %> - <%= User.most_food_posts.foods.count.to_s + " posts" %></li><br> 
-                <li><%= link_to User.most_drink_posts.name, User.most_drink_posts %> - <%= User.most_drink_posts.drinks.count.to_s + " posts"%></li><br>
+                <li><h4><%= link_to User.most_food_posts.name, User.most_food_posts %> - <%= User.most_food_posts.foods.count.to_s + " posts" %></h4></li>
+                <li><h4><%= link_to User.most_drink_posts.name, User.most_drink_posts %> - <%= User.most_drink_posts.drinks.count.to_s + " posts"%></h4></li>
             </ol>
-        </div
+        </div             
+
+        <div> 
+            <h3 class="font-italic">Unsure Of What To Make?</h3>
+            Food: <%= button_to "I'm Feeling Lucky", random_food_path, method: :get %><br> 
+
+            Drink: <%= button_to "I'm Feeling Lucky", random_drink_path, method: :get %>
+
+        </div> 
 
     </div>
 
   </div><!-- /.row -->
 
 </main>
-
-Food: <%= button_to "I'm Feeling Lucky", random_food_path, method: :get %><br> 
-
-Drink: <%= button_to "I'm Feeling Lucky", random_drink_path, method: :get %> 
 
