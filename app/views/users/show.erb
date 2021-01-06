@@ -5,38 +5,60 @@ City: <%= @user.city %><br><br>
 <% if current_user == @user %>
 <%= button_to "Sign Out", logout_path, method: :get %> <br> <br>
 <% end %>
+<hr>
+<div class="position-relative row mb-2">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">Featured Food Recipe</h3>
+           <%= link_to @user.featured_food.name + " by " + @user.featured_food.user.name, @user.featured_food %><br><br>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        <%= image_tag @user.featured_food.image_url, size: "300x325"%>
+        </div>
+      </div>
+    </div>
 
-<% if @user.featured_food %> 
-<h4>Featured Food</h4>
-<%= link_to @user.featured_food.name, @user.featured_food %><br><br>
-<% end %> 
-
-<% if @user.featured_drink %> 
-<h4>Featured Drink</h4>
-<%= link_to @user.featured_drink.name, @user.featured_drink %><br><br>
-<% end %>
-
-<h4>All Food Recipes:</h4>
-<% if current_user == @user %>
-<%= button_to "Create New Recipe", new_food_path, method: :get %> <br>
-<% end %>
-
-<% @user.foods.each do |f| %> 
-<b>- </b> <%= link_to f.name, food_path(f) %><br>
-<% end %>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">Featured Drink Recipe</h3>
+           <%= link_to @user.featured_drink.name + " by " + @user.featured_drink.user.name, @user.featured_drink %><br><br>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        <%= image_tag @user.featured_drink.image_url, size: "300x325"%>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-<h4>All Drink Recipes:</h4>
-<% if current_user == @user %>
-<%= button_to "Create New Recipe", new_drink_path, method: :get %> <br>
-<% end %>
 
-<% @user.drinks.each do |d| %>
-<b>- </b> <%= link_to d.name, drink_path(d) %><br>
-<% end %> 
+<div class="position-relative">
+    <h4>All Food Recipes:</h4>
+    <% if current_user == @user %>
+    <%= button_to "Create New Recipe", new_food_path, method: :get %> <br>
+    <% end %>
 
-<h4>All likes</h4> 
-<%= @user.all_likes %>
+    <% @user.foods.each do |f| %> 
+    <b>- </b> <%= link_to f.name, food_path(f) %><br>
+    <% end %>
+
+
+    <h4>All Drink Recipes:</h4>
+    <% if current_user == @user %>
+    <%= button_to "Create New Recipe", new_drink_path, method: :get %> <br>
+    <% end %>
+
+    <% @user.drinks.each do |d| %>
+    <b>- </b> <%= link_to d.name, drink_path(d) %><br>
+    <% end %> 
+
+    <h4>All likes</h4> 
+    <%= @user.all_likes %>
+</div>
+
+
 
 
 
