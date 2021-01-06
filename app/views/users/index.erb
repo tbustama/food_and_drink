@@ -1,13 +1,19 @@
-<h2>All Chefs</h2>
+<div class="p-4">
+      <h3 class="font-italic">Top 3 Active Chefs</h3>
+      <ol class="list-unstyled">
+         <% User.top_three_active.each do |user| %> 
+            <li><h4><%= link_to user.name, user %></h4></li>
+            <% end %> 
+            </ol>
+<hr>
+      <h3 class="font-italic">All Chefs</h3>
+      <ol class="list-unstyled">
+         <% User.like_sort.each do |user| %> 
+            <li><h4><%= link_to user.name + " from " + user.city + " with " + user.all_posts.to_s + " posts. ", user %></h4></li>
+            <% end %> 
+            </ol>
+</div> 
 
 
-<% User.like_sort.each do |user| %> 
-   <%= link_to user.name + ", " + user.all_likes.to_s, user %><br>
-    <% end %> 
 
 
-<h3>Top 3 Active Chefs</h3>
-
-<% User.top_three_active.each do |user| %> 
-   <%= link_to user.name, user %><br>
-    <% end %> 

@@ -34,6 +34,11 @@ class User < ApplicationRecord
         total = food_likes + drink_likes
     end 
 
+    def all_posts 
+        total_post = self.foods.count + self.drinks.count
+        
+    end
+
     def self.like_sort 
         User.all.sort_by{|user| user.all_likes}.reverse
     end
