@@ -93,34 +93,34 @@
         <h2>Whats Hot Right Now!</h2>
         
         <h4><%= link_to Food.most_comments.name + " by " + Food.most_comments.user.name, Food.most_comments %><br></h4>
-        <p class="blog-post-meta">Created: <%= Food.most_comments.created_at.to_s %></p>
+        <p class="blog-post-meta">Created: <%= Food.most_comments.created_at.strftime("%B %d, %Y") %></p>
         <p>"<%= Food.most_comments.comments.last.content %>" - <%= Food.most_comments.comments.last.user.name %></p>
         <%= image_tag Food.most_comments.image_url, size: "250x275"%><br><br>
 
         <hr>
         
         <h4><%= link_to Drink.most_comments.name + " by " + Drink.most_comments.user.name, Drink.most_comments %><br></h4>
-        <p class="blog-post-meta">Created: <%= Drink.most_comments.created_at.to_s %></p>
+        <p class="blog-post-meta">Created: <%= Drink.most_comments.created_at.strftime("%B %d, %Y") %></p>
         <p>"<%= Drink.most_comments.comments.last.content %>" - <%= Drink.most_comments.comments.last.user.name %></p>
         <%= image_tag Drink.most_comments.image_url, size: "250x275"%><br><br>
 
         <hr>
 
+        <div> 
+            <h3 class="font-italic">Unsure Of What To Make?</h3>
+            Food: <%= button_to "I'm Feeling Hungry", random_food_path, method: :get %><br> 
+
+            Drink: <%= button_to "I'm Feeling Thirsty", random_drink_path, method: :get %>
+
+        </div> 
         <div class="p-4">
             <h3 class="font-italic">Most Active Chefs</h3>
             <ol class="list-unstyled">
                 <li><h4><%= link_to User.most_food_posts.name, User.most_food_posts %> - <%= User.most_food_posts.foods.count.to_s + " posts" %></h4></li>
                 <li><h4><%= link_to User.most_drink_posts.name, User.most_drink_posts %> - <%= User.most_drink_posts.drinks.count.to_s + " posts"%></h4></li>
             </ol>
-        </div             
+        </div>             
 
-        <div> 
-            <h3 class="font-italic">Unsure Of What To Make?</h3>
-            Food: <%= button_to "I'm Feeling Lucky", random_food_path, method: :get %><br> 
-
-            Drink: <%= button_to "I'm Feeling Lucky", random_drink_path, method: :get %>
-
-        </div> 
 
     </div>
 

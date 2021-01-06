@@ -14,7 +14,7 @@ class Drink < ApplicationRecord
   end
 
   def self.most_comments
-    Drink.all.max_by{|drink| drink.comments}
+    Drink.all.max_by{|drink| drink.comments.count}
   end
 
   def city
