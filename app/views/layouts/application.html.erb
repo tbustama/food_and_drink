@@ -8,15 +8,23 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" %>
     <link href="https://getbootstrap.com/docs/4.0/examples/pricing/pricing.css" rel="stylesheet">
+    <%=stylesheet_link_tag "https://getbootstrap.com/docs/4.0/examples/blog/blog.css"%>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    
-    <nav class="navbar navbar-expand border-bottom navbar-inverse" style="background-color:#f3f6f7">
+  <body style="margin:auto;width:80%;">
+    <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 text-center">
+            <h1 style="font-family:cursive; font-size:60px"class="blog-header-logo text-light">Food & Drinks</h1><br>
+          </div>
+          
+        </div>
+      </header>
+    <nav class="navbar navbar-expand border-bottom navbar-inverse" style="background-color:#f3f6f7; border-color:#FFF; font-size:0.9vw">
       <div style="margin: 5px 20px">
         <div class="navbar-header">
-        <ul><%= link_to "Home", root_path, style:"color:#000", class: "navbar-brand" %></ul>
+        <ul><%= link_to "Home", root_path, style:"color:#000; font-size:1.2vw", class: "navbar-brand" %></ul>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">

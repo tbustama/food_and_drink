@@ -5,20 +5,22 @@
   <h4>Logged in as <%= current_user.username %> <br><br>
   <%= button_to "Logout", logout_path, method: :get%></h4>
 <% else %>
-<p id=”alert”><%= alert %></p>
-<h1>Login</h1>
-<%= form_tag sessions_path do |form| %>
-  <div class=”field”>
-    <%= label_tag :username %>  
-    <%= text_field_tag :username %>
-  </div>
-  <div class=”field”>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class=”actions”>
-    <%= submit_tag :login %> <br><br>
-  </div>
+<p id=”alert”><%= alert %></p><br><br><br>
+<b><h1 style="font-family:cursive; font-size:60px ">F&D</h1></b><br>
+<h2>
+<%= form_tag(sessions_path, {style:"margin:auto;width:30%"}) do |form| %>
+    <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+    <%= label_tag :username, nil, class:"sr-only"%>  
+    <%= text_field_tag :username, nil, placeholder: "Username", class:"form-control"%>
+  
+  
+    <%= label_tag :password, nil, class:"sr-only" %>
+    <%= password_field_tag :password, nil, autofocus:true, placeholder: "Password", class:"form-control"%> <br>
+  
+ 
+    <%= submit_tag "Log In", class:"btn btn-m btn-primary btn-block" %> <br><br>
+
 <% end %>
+</h2>
 Don't have an Account? <br><%= button_to "Create Account Here", new_user_path, method: :get %>
 <% end %>
