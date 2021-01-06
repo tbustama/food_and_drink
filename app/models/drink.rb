@@ -6,7 +6,7 @@ class Drink < ApplicationRecord
   validates_presence_of :category, :name, :ingredients, :directions, :image_url
 
   def self.most_liked
-    Drink.all.max_by{|drink| drink.likes}
+    Drink.all.max_by{|drink| drink.likes.count}
   end
 
   def self.random

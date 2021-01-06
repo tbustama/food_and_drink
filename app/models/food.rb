@@ -6,7 +6,7 @@ class Food < ApplicationRecord
   validates_presence_of :category, :name, :ingredients, :directions, :image_url, :time 
 
   def self.most_liked
-    Food.all.max_by{|food| food.likes}
+    Food.all.max_by{|food| food.likes.count}
   end
 
   def self.random
@@ -14,7 +14,7 @@ class Food < ApplicationRecord
   end
 
   def self.most_comments
-    Food.all.max_by{|food| food.comments}
+    Food.all.max_by{|food| food.comments.count}
   end
 
   def self.longest_time
@@ -22,7 +22,7 @@ class Food < ApplicationRecord
   end
 
   def self.shortest_time
-    Food.group(:time).having("time < 30")
+    Food.where("time < 31").limit(10)
   end
 
   def self.top_five_foods

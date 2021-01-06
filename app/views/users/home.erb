@@ -1,39 +1,126 @@
-<h1>Welcome to Food & Drinks</h1> 
 
-<h4>Most Popular City</h4> 
-<%= User.most_pop_city.city %><br>
 
-<h4>User With The Most Food Post</h4> 
-<%= link_to User.most_food_posts.name, User.most_food_posts %><br>
+<main class="container">
 
-<h4>User With The Most Drink Post</h4> 
-<%= link_to User.most_drink_posts.name, User.most_drink_posts %><br>
 
-<h4>Top 5 Drink Posts</h4> 
-<% Drink.top_five_likes.each do |drink| %> 
-    <%= link_to drink.name, drink %><br>
-    <% end %> 
+      <h1 class="display-4 font-italic">Welcome to Food and Drink</h1>
+      <p class="lead my-3">A place for creative chefs to showcase their recipes.</p>
 
-<h4>Top 5 Food Posts</h4> 
-<% Food.top_five_foods.each do |food| %> 
-    <%= link_to food.name, food %><br>
-    <% end %> 
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">Featured Food Recipe</h3>
+           <%= link_to Food.most_liked.name + " by " + Food.most_liked.user.name, Food.most_liked %><br><br>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        <%= image_tag Food.most_liked.image_url, size: "300x325"%>
+        </div>
+      </div>
+    </div>
 
-<h4>Meals Under 30 Minutes</h4> 
-<% Food.shortest_time.each do |time| %> 
-<%= link_to time.name, time %><br> 
-<% end %> 
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">Featured Drink Recipe</h3>
+           <%= link_to Drink.most_liked.name + " by " + Drink.most_liked.user.name, Drink.most_liked %><br><br>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        <%= image_tag Drink.most_liked.image_url, size: "300x325"%>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <br> 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <hr>
 
-<h4>Low and Slow</h4> 
-<%= link_to Food.longest_time.name, Food.longest_time %><br> 
+  <div class="col-md-6 px-0">
+    <h2>Easiest and Lowest Prep Meal</h2>
+    <p class="lead my-3">Meals that are as fewest ingredients yet taste great!</p>
+    <p class="lead mb-0"><%= link_to "Continue to recipe...", Food.least_ingredients %></p>
+    
+    <h2>Low And Slow Meal</h2>
+    <p class="lead my-3">Meals That Have A Long Cook Time</p>
+    <p class="lead mb-0"><%= link_to "Continue to recipe...", Food.longest_time %></p>
 
-<h4>Least Ingredients and Prep Meal</h4> 
-<%= link_to Food.least_ingredients.name, Food.least_ingredients %><br> 
+  <hr>
+      <div class="p-4 mb-3 bg-light rounded">
+        <h3 class="font-italic">Most Popular City For Chefs</h3>
+        <p class="mb-0"><h4><%= User.most_pop_city.city %><h4></p>
+      </div>
 
-<h4>Most Talked About Food and Drink Recipe</h4> 
-Food: <%= link_to Food.most_comments.name, Food.most_comments %><br> 
-Drink: <%= link_to Drink.most_comments.name, Drink.most_comments %><br><br>
+      <div class="p-4">
+            <h3 class="font-italic">Top 5 Food Recipes</h3>
+            <ol class="list-unstyled mb-0">
+                <% Food.top_five_foods.each do |food| %> 
+                    <li><h4><%= link_to food.name, food %></h4></li>
+                <% end %>
+            </ol>
+      </div>
+
+      <div class="p-4">
+            <h3 class="font-italic">Top 5 Drink Recipes</h3>
+            <ol class="list-unstyled">
+                <% Drink.top_five_likes.each do |drink| %> 
+                     <li><h4><%= link_to drink.name, drink %></h4></li>
+                <% end %> 
+            </ol>
+      </div>
+    <hr>
+      <div class="p-4">
+            <h3 class="font-italic">Meals Under 30 Minutes</h3>
+            <ol class="list-unstyled">
+                 <% Food.shortest_time.each do |time| %> 
+                    <li><h4><%= link_to time.name, time %></h4></li> 
+                <% end %> 
+            </ol>
+        </div>
+    </div>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <article class="blog-post">
+        <h2>Whats Hot Right Now!</h2>
+        
+        <h4><%= link_to Food.most_comments.name + " by " + Food.most_comments.user.name, Food.most_comments %><br></h4>
+        <p class="blog-post-meta">Created: <%= Food.most_comments.created_at.to_s %></p>
+        <p>"<%= Food.most_comments.comments.last.content %>" - <%= Food.most_comments.comments.last.user.name %></p>
+        <%= image_tag Food.most_comments.image_url, size: "250x275"%><br><br>
+
+        <hr>
+        
+        <h4><%= link_to Drink.most_comments.name + " by " + Drink.most_comments.user.name, Drink.most_comments %><br></h4>
+        <p class="blog-post-meta">Created: <%= Drink.most_comments.created_at.to_s %></p>
+        <p>"<%= Drink.most_comments.comments.last.content %>" - <%= Drink.most_comments.comments.last.user.name %></p>
+        <%= image_tag Drink.most_comments.image_url, size: "250x275"%><br><br>
+
+        <hr>
+
+        <div class="p-4">
+            <h3 class="font-italic">Most Active Chefs</h3>
+            <ol class="list-unstyled">
+                <li><%= link_to User.most_food_posts.name, User.most_food_posts %> - <%= User.most_food_posts.foods.count.to_s + " posts" %></li><br> 
+                <li><%= link_to User.most_drink_posts.name, User.most_drink_posts %> - <%= User.most_drink_posts.drinks.count.to_s + " posts"%></li><br>
+            </ol>
+        </div
+
+    </div>
+
+  </div><!-- /.row -->
+
+</main>
 
 Food: <%= button_to "I'm Feeling Lucky", random_food_path, method: :get %><br> 
 
 Drink: <%= button_to "I'm Feeling Lucky", random_drink_path, method: :get %> 
+
