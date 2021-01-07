@@ -1,8 +1,8 @@
 <h2><%= @drink.name %> </h2>
 <h5>
-Created by: <%=link_to @drink.user.name, @drink.user%> <br>
-Ingredients: <%= @drink.ingredients %> <br>
-Directions: <%= @drink.directions %> </h5><br><br>
+Created by: <%=link_to @drink.user.name, @drink.user%> <br><br>
+<b>Ingredients:</b> <%= @drink.ingredients %> <br><br>
+<b>Directions: </b><%= @drink.directions %> </h5><br><br>
 <%= image_tag @drink.image_url, size:"500x600"%> <br><br>
 
 <p><%= @drink.likes.count %> <%= (@drink.likes.count) == 1 ? 'Like' : 'Likes'%></p><br>
