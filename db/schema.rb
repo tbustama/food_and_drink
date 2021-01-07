@@ -73,3 +73,4 @@ ActiveRecord::Schema.define(version: 2020_12_28_171720) do
   add_foreign_key "foods", "users"
   add_foreign_key "likes", "users"
 end
+
