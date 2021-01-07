@@ -6,34 +6,40 @@ City: <%= @user.city %><br><br>
 <%= button_to "Sign Out", logout_path, method: :get %> <br>
 <% end %>
 <hr>
-<% if @user.featured_food%>
+
 <div class="position-relative row mb-2" style="height:450px; overflow:auto">
     <div class="col-md-6">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <h3 class="mb-0">Featured Food Recipe</h3>
-           <%= link_to @user.featured_food.name + " by " + @user.featured_food.user.name, @user.featured_food %><br><br>
+          <% if @user.featured_food%>
+           <%= link_to @user.featured_food.name + " by " + @user.featured_food.user.name, @user.featured_food %><% end %><br><br>
         </div>
         <div class="col-auto d-none d-lg-block">
+        <% if @user.featured_food%>
         <%= image_tag @user.featured_food.image_url, size: "300x325"%>
+        <% end %>
         </div>
       </div>
     </div>
-<% end %>
-<% if @user.featured_drink %>
+
+
     <div class="col-md-6">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <h3 class="mb-0">Featured Drink Recipe</h3>
-           <%= link_to @user.featured_drink.name + " by " + @user.featured_drink.user.name, @user.featured_drink %><br><br>
+          <% if @user.featured_drink %>
+           <%= link_to @user.featured_drink.name + " by " + @user.featured_drink.user.name, @user.featured_drink %><% end %>
+           <br><br>
         </div>
         <div class="col-auto d-none d-lg-block">
-        <%= image_tag @user.featured_drink.image_url, size: "300x325"%>
+        <% if @user.featured_drink %>
+        <%= image_tag @user.featured_drink.image_url, size: "300x325"%><% end %>
         </div>
       </div>
     </div>
   </div>
-<% end %>
+
 <hr>
 
 

@@ -1,9 +1,9 @@
 <h2><%= @food.name %> </h2>
 <h5>
 Created by: <%= link_to @food.user.name, @food.user %> <br>
-Time: <%= @food.time.to_s + " minutes" %> <br>
-Ingredients: <%= @food.ingredients %> <br>
-Directions: <%= @food.directions %> </h5><br><br>
+Time: <%= @food.time.to_s + " minutes" %> <br><br>
+<b>Ingredients:</b> <%= @food.ingredients %> <br><br>
+<b> Directions:</b> <%= @food.directions %> </h5><br><br>
 <%= image_tag @food.image_url, size:"500x600"%> <br><br>
 
 <p><%= @food.likes.count %> <%= (@food.likes.count) == 1 ? 'Like' : 'Likes'%></p><br>
