@@ -1,8 +1,9 @@
 <h2>Food Recipes</h2> <br>
 <% @foods.each do |food|%>
+    <h5>
     <%= link_to food.name, food %> <br>
     Created by: <%= link_to food.user.name, food.user %> <br>
-    Category: <%= food.category %><br><br>
+    Category: <%= food.category %><br><br></h5>
     <%= image_tag food.image_url, size: "200x225"%> <br><br>
 <% end %>
 
