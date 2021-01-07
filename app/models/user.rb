@@ -9,7 +9,8 @@ class User < ApplicationRecord
 
 
     def self.most_pop_city
-        User.all.max_by{|user| user.city}
+        cities = User.all.map{|user| user.city}
+        city = cities.max_by{|town| cities.count(town)}
     end 
 
     def self.most_food_posts
