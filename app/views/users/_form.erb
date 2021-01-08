@@ -6,16 +6,16 @@
 
 <%= form_with model:@user do |f| %> 
 
-    <%= f.label :name %> 
+    <%= f.label :name %> <br>
     <%= f.text_field :name %><br><br>
 
-    <%= f.label :city %>
+    <%= f.label :city %> <br>
     <%= f.text_field :city %><br><br>
 
-    <%= f.label :password %>
+    <%= f.label :password %> <br>
     <%= f.password_field :password %><br><br>
 
-    <%= f.label :username %>
+    <%= f.label :username %> <br>
     <%= f.text_field :username %><br><br>
 
     <%= f.submit %>
