@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   resources :sessions, only: [:create]
-  resources :comments
-  # haven't needed this yet ==> resources :likes
+  resources :comments, only: [:new, :create, :show, :destroy]
+  resources :users
   post 'foods/:id/likes/:id', to: 'likes#create_food_like', as: 'like_food'
   post 'drinks/:id/likes/:id', to: 'likes#create_drink_like', as: 'like_drink'
   get 'random_food', to: 'foods#random', as: 'random_food'
@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :drinks do 
     resources :likes 
   end 
-  resources :users
+  
 end

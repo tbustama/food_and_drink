@@ -9,9 +9,6 @@ class UsersController < ApplicationController
     end 
 
     def home 
-        # @user = User.all 
-        # @foods = Food.all 
-        # @drinks = Drink.all
     end 
 
     def new 
