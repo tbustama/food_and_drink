@@ -1,3 +1,7 @@
+<% if @food.user == current_user %>
 <h1>Edit Food Form</h1>
 
 <%= render 'form' %>
+<% else %>
+<h1 style="color:red"><b>Acceess Denied</b></h1>
+<% end %>

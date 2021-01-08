@@ -3,6 +3,7 @@
       <p><%= error %></p>
     <% end %>
 <% end %>
+<% if @drink.user == current_user %>
 <h2>Edit Drink Recipe</h2>
 <%= form_with model:@drink do |f|%>
     <%= f.label :name %>
@@ -21,4 +22,7 @@
     <%= f.text_field :image_url %><br><br>
     
     <%= f.submit %>
+<% end %>
+<% else %>
+<h1 style="color:red"><b>Acceess Denied</b></h1>
 <% end %>
